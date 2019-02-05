@@ -12,5 +12,12 @@ auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
 auth.set_access_token(access_token, access_token_secret)
 api = tweepy.API(auth)
 
+#getting tweets and printing sentiment value
+tweets = api.search('21 Savage')
+for tweet in tweets: 
+    print(tweet.text)
+    analysis = TextBlob(tweet.text)
+    print(analysis.sentiment)
+    print('\n')
 
 
